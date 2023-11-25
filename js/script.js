@@ -5,9 +5,7 @@ const newGridButton = document.querySelector('button');
 window.addEventListener('load', setGrid(16));
 
 board.addEventListener('mouseover', e => {
-    if (e.buttons == 1) {
-        changeCeilColor(e);
-    }
+    changeCeilColor(e);
 });
 
 newGridButton.addEventListener('click', setGridSizeMenu);
