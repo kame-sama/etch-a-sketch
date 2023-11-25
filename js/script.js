@@ -33,32 +33,36 @@ function changeCeilColor(ceil) {
 }
 
 function setGridSizeMenu() {
-    const body = document.querySelector('body');
-    const main = document.querySelector('main');
-    const gridSizeMenu = document.createElement('div');
-    const container = document.createElement('div');
+    let condition = document.querySelector('#submit');
+    
+    if (!condition) {
+        const body = document.querySelector('body');
+        const main = document.querySelector('main');
+        const gridSizeMenu = document.createElement('div');
+        const container = document.createElement('div');
 
-    gridSizeMenu.classList.add('grid-size-menu');
-    container.classList.add('container');
+        gridSizeMenu.classList.add('grid-size-menu');
+        container.classList.add('container');
 
-    const input = document.createElement('input');
-    input.setAttribute('type', 'number');
-    input.setAttribute('min', '16');
-    input.setAttribute('max', '100');
-    input.id = 'ceils-per-side';
-    input.setAttribute('placeholder', 'Enter a number between 16 and 100');
+        const input = document.createElement('input');
+        input.setAttribute('type', 'number');
+        input.setAttribute('min', '16');
+        input.setAttribute('max', '100');
+        input.id = 'ceils-per-side';
+        input.setAttribute('placeholder', 'Enter a number between 16 and 100');
 
-    const submit = document.createElement('button');
-    submit.textContent = 'Submit';
-    submit.id = 'submit';
+        const submit = document.createElement('button');
+        submit.textContent = 'Submit';
+        submit.id = 'submit';
 
-    container.appendChild(input);
-    container.appendChild(submit);
-    gridSizeMenu.appendChild(container);
+        container.appendChild(input);
+        container.appendChild(submit);
+        gridSizeMenu.appendChild(container);
 
-    body.insertBefore(gridSizeMenu, main);
+        body.insertBefore(gridSizeMenu, main);
 
-    submit.addEventListener('click', setNewGrid);
+        submit.addEventListener('click', setNewGrid);
+    }
 }
 
 function setNewGrid() {
