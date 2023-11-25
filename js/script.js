@@ -3,14 +3,23 @@ const board = document.querySelector('.board');
 
 window.addEventListener('load', setGrid(16));
 
-function setGrid(gridSize) {
-    const blockSize = boardSize / gridSize;
-    console.log(blockSize);
-    for (let i = 0; i < gridSize ** 2; i++) {
-        const block = document.createElement('div');
-        block.classList.add('block');
-        block.style.width = blockSize + 'px';
-        block.style.height = blockSize + 'px';
-        board.appendChild(block);
+board.addEventListener('mouseover', e => {
+    changeCeilColor(e);
+});
+
+function setGrid(ceilsPerSide) {
+    const ceilSize = boardSize / ceilsPerSide;
+    const gridSize = ceilsPerSide ** 2;
+    for (let i = 0; i < gridSize; i++) {
+        const ceil = document.createElement('div');
+        ceil.classList.add('ceil');
+        ceil.style.width = ceilSize + 'px';
+        ceil.style.height = ceilSize + 'px';
+        board.appendChild(ceil);
     }
+}
+
+function changeCeilColor(ceil) {
+    ceil.target.style.backgroundColor = 'black';
+    ceil.target.style.border = 'none';
 }

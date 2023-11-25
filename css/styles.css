@@ -13,8 +13,7 @@
     align-items: center;
 }
 
-.block {
-    flex: none;
+.ceil {
     border: 1px solid gray;
     background-color: white;
 }
