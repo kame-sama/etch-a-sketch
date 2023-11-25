@@ -36,21 +36,25 @@ function setGridSizeMenu() {
     const body = document.querySelector('body');
     const main = document.querySelector('main');
     const gridSizeMenu = document.createElement('div');
+    const container = document.createElement('div');
 
     gridSizeMenu.classList.add('grid-size-menu');
+    container.classList.add('container');
 
     const input = document.createElement('input');
     input.setAttribute('type', 'number');
     input.setAttribute('min', '16');
     input.setAttribute('max', '100');
     input.id = 'ceils-per-side';
+    input.setAttribute('placeholder', 'Enter a number between 16 and 100');
 
     const submit = document.createElement('button');
     submit.textContent = 'Submit';
     submit.id = 'submit';
 
-    gridSizeMenu.appendChild(input);
-    gridSizeMenu.appendChild(submit);
+    container.appendChild(input);
+    container.appendChild(submit);
+    gridSizeMenu.appendChild(container);
 
     body.insertBefore(gridSizeMenu, main);
 
