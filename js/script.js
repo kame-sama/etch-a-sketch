@@ -28,7 +28,13 @@ function clearGrid() {
 }
 
 function changeCeilColor(ceil) {
-    ceil.target.style.backgroundColor = pickRandomColor();
+    let style = window.getComputedStyle(ceil.target);
+    let bgColor = style.backgroundColor;
+    if (bgColor == 'rgb(255, 255, 255)') {
+        ceil.target.style.backgroundColor = pickRandomColor();
+    } else {
+        ceil.target.style.backgroundColor = darkenColor(bgColor);
+    }
     ceil.target.style.border = 'none';
 }
 
@@ -36,6 +42,20 @@ function pickRandomColor() {
     const r = Math.floor(Math.random() * 256);
     const g = Math.floor(Math.random() * 256);
     const b = Math.floor(Math.random() * 256);
+
+    return `rgb(${r},${g},${b})`;
+}
+
+function darkenColor(color) {
+    const regEx = /rgb\((\d+), (\d+), (\d+)\)/;
+    const rgb = color.match(regEx);
+    console.log(rgb);
+    let [,r, g, b] = rgb;
+    console.log(r, g, b);
+
+    r = Math.round(r - r * 0.1);
+    g = Math.round(g - g * 0.1);
+    b = Math.round(b - b * 0.1);
 
     return `rgb(${r},${g},${b})`;
 }
