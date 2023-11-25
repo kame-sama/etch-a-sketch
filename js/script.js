@@ -28,8 +28,16 @@ function clearGrid() {
 }
 
 function changeCeilColor(ceil) {
-    ceil.target.style.backgroundColor = 'black';
+    ceil.target.style.backgroundColor = pickRandomColor();
     ceil.target.style.border = 'none';
+}
+
+function pickRandomColor() {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+
+    return `rgb(${r},${g},${b})`;
 }
 
 function setGridSizeMenu() {
