@@ -65,6 +65,7 @@ main {
     justify-content: flex-end;
     gap: 16px;
     background-color: steelblue;
+    border-radius: 0 0 8px 8px;
 }
 
 #ceils-per-side {

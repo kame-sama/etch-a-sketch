@@ -49,9 +49,7 @@ function pickRandomColor() {
 function darkenColor(color) {
     const regEx = /rgb\((\d+), (\d+), (\d+)\)/;
     const rgb = color.match(regEx);
-    console.log(rgb);
     let [,r, g, b] = rgb;
-    console.log(r, g, b);
 
     r = Math.round(r - r * 0.1);
     g = Math.round(g - g * 0.1);
