@@ -4,8 +4,17 @@
     padding: 0;
 }
 
-.display {
+.board {
     width: 480px;
     height: 480px;
-    border: 1px solid black;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.block {
+    flex: none;
+    border: 1px solid gray;
+    background-color: white;
 }
