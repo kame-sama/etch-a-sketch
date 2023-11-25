@@ -88,6 +88,11 @@ function setGridSizeMenu() {
         body.insertBefore(gridSizeMenu, main);
 
         submit.addEventListener('click', setNewGrid);
+        input.addEventListener('keydown', (e) => {
+            if (e.key == 'Enter') {
+                submit.click();
+            }
+        })
     }
 }
 
